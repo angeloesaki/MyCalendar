@@ -1,0 +1,23 @@
+body {
+  /* 等幅フォント */
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+}
+
+table {
+  /* セル間のボーダーを消す */
+  border-collapse: collapse;
+  border: 2px solid #eee;
+  /* margin: 0 auto; */
+}
+
+thead,
+tfoot {
+  background: #eee;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: center;
+}
