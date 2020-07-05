@@ -80,8 +80,26 @@ console.clear();
       weeks.push(dates.splice(0, 7));
     }
 
+    weeks.forEach((week) => {
+      const tr = document.createElement("tr");
+      week.forEach((date) => {
+        const td = document.createElement("td");
+
+        td.textContent = date.date;
+        if (date.isToday) {
+          td.classList.add("today");
+        }
+        if (date.isDisabled) {
+          td.classList.add("disabled");
+        }
+        tr.appendChild(td);
+      });
+      const tbody = document.querySelector("tbody");
+      tbody.appendChild(tr);
+    });
+
     // console.log(dates);
-    console.log(weeks);
+    // console.log(weeks);
   }
 
   createCalendar();
