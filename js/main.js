@@ -26,7 +26,7 @@ console.clear();
       });
     }
 
-    console.log(dates);
+    return dates;
   }
 
   //カレンダーは大きく分けて３つのパートに分かれている：先月、今月、来月
@@ -43,7 +43,7 @@ console.clear();
         isDisabled: false,
       });
     }
-    console.log(dates);
+    return dates;
   }
 
   function getCalendarTail() {
@@ -58,10 +58,26 @@ console.clear();
       });
     }
 
+    return dates;
+  }
+
+  function createCalendar() {
+    //配列の中に配列が入っている状態
+    //全ての要素を一つの配列の中で展開して欲しい
+    //その場合はスプレッド演算子を利用する
+    // const dates = [getCalendarHead(), getCalendarBody(), getCalendarTail()];
+    const dates = [
+      ...getCalendarHead(),
+      ...getCalendarBody(),
+      ...getCalendarTail(),
+    ];
+
     console.log(dates);
   }
 
+  createCalendar();
+
   // getCalendarHead();
   // getCalendarBody();
-  getCalendarTail();
+  // getCalendarTail();
 }
