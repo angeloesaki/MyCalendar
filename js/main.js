@@ -3,8 +3,8 @@
 console.clear();
 
 {
-  const year = 2020;
-  const month = 4; // 5月
+  let year = 2020;
+  let month = 6; // 7月
 
   //前月分の日付を取得
   function getCalendarHead() {
@@ -101,6 +101,28 @@ console.clear();
     // console.log(dates);
     // console.log(weeks);
   }
+
+  const prev = document.getElementById("prev");
+  prev.addEventListener("click", () => {
+    month--;
+    if (month < 0) {
+      year--;
+      month = 11;
+    }
+
+    createCalendar();
+  });
+
+  const next = document.getElementById("next");
+  next.addEventListener("click", () => {
+    month++;
+    if (month > 11) {
+      year++;
+      month = 0;
+    }
+
+    createCalendar();
+  });
 
   createCalendar();
 
