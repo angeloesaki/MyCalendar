@@ -61,20 +61,24 @@ console.clear();
     return dates;
   }
 
-  function createCalendar() {
+  function clearCalendar() {
     const tbody = document.querySelector("tbody");
 
     //prev・nextボタンを押した時に一つ前に表示されていた月を削除する方法
     while (tbody.firstChild) {
       tbody.removeChild(tbody.firstChild);
     }
+  }
 
+  function renderTitle() {
     const title = document.getElementById("title");
     //String()は()の引数を文字列にするメソッド
     //padStart()は文字列に対してしか使えない
     //以下のpadStart()の意味は2桁で表示してね、それに満たなかったら"0"の文字列で埋めてねという意味になる
     title.textContent = `${year}/${String(month + 1).padStart(2, "0")}`;
+  }
 
+  function renderWeeks() {
     //配列の中に配列が入っている状態
     //全ての要素を一つの配列の中で展開して欲しい
     //その場合はスプレッド演算子を利用する
@@ -108,11 +112,15 @@ console.clear();
         tr.appendChild(td);
       });
 
+      const tbody = document.querySelector("tbody");
       tbody.appendChild(tr);
     });
+  }
 
-    // console.log(dates);
-    // console.log(weeks);
+  function createCalendar() {
+    clearCalendar();
+    renderTitle();
+    renderWeeks();
   }
 
   const prev = document.getElementById("prev");
