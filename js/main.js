@@ -3,8 +3,10 @@
 console.clear();
 
 {
-  let year = 2020;
-  let month = 6; // 7月
+  const today = new Date();
+
+  let year = today.getFullYear();
+  let month = today.getMonth();
 
   //前月分の日付を取得
   function getCalendarHead() {
@@ -43,6 +45,12 @@ console.clear();
         isDisabled: false,
       });
     }
+
+    if (year === today.getFullYear() && month === today.getMonth()) {
+      //今日の日付だけtrueで上書きする
+      dates[today.getDate() - 1].isToday = true;
+    }
+
     return dates;
   }
 
