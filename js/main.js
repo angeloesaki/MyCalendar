@@ -153,6 +153,14 @@ console.clear();
     createCalendar();
   });
 
+  const todaybutton = document.getElementById("today");
+  todaybutton.addEventListener("click", () => {
+    year = today.getFullYear();
+    month = today.getMonth();
+
+    createCalendar();
+  });
+
   createCalendar();
 
   // getCalendarHead();
